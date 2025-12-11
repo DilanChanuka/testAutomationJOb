@@ -17,7 +17,9 @@ public function main() returns error? {
 
         // Print log with timestamp-like counter and random number
         io:println(string `[Log #${logCount}] Automation job running - Random value: ${randomNumber}`);
+        runtime:sleep(3);
         io:println(string `[Log #${logCount}] Processing task with ID: ${randomNumber}`);
+        runtime:sleep(3);
         io:println(string `[Log #${logCount}] Status: Active | Generated number: ${randomNumber}`);
         io:println("---------------------------------------------------");
 
