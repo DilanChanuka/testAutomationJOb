@@ -4,10 +4,6 @@ import ballerina/random;
 
 public function main() returns error? {
     io:println("Starting automation job...");
-    runtime:sleep(30); // simulate a slow query
-    io:println("Query still running...");
-    panic error("SQL execution error: query exceeded internal limit");
-
     io:println("Task started — sleeping 120 seconds...");
     runtime:sleep(120); // 2 minutes
     io:println("Task completed.");
