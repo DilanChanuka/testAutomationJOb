@@ -1,39 +1,19 @@
-import ballerina/io;
-import ballerina/os;
-import ballerina/lang.runtime;
-import ballerina/random;
+  import ballerina/io;
+  import ballerina/lang.runtime;
+  import ballerina/random;
 
-public function main() returns error? {
-    io:println("Starting automation job...");
-    io:println("SQL query exceeded timeout — task failed");
-    os:exit(1);
-    io:println("Task started — sleeping 120 seconds...");
-    runtime:sleep(120); // 2 minutes
-    io:println("Task completed.");
+  public function main() returns error? {
+      io:println("Starting automation job...");
+      io:println("---------------------------------------------------");
 
-    io:println("This job will print logs every 3 seconds with random numbers");
-    io:println("Press Ctrl+C to stop the job");
-    io:println("---------------------------------------------------");
+      int logCount = 1;
+      while logCount <= 5 {
+          int randomNumber = check random:createIntInRange(1, 1001);
+          io:println(string `[Log #${logCount}] Running query - Random value: ${randomNumber}`);
+          runtime:sleep(5);
+          logCount += 1;
+      }
 
-    int logCount = 1;
-
-    // Run indefinitely until manually stopped
-    while true {
-        // Generate a random number between 1 and 1000
-        int randomNumber = check random:createIntInRange(1, 1001);
-
-        // Print log with timestamp-like counter and random number
-        io:println(string `[Log #${logCount}] Automation job running - Random value: ${randomNumber}`);
-        runtime:sleep(3);
-        io:println(string `[Log #${logCount}] Processing task with ID: ${randomNumber}`);
-        runtime:sleep(3);
-        io:println(string `[Log #${logCount}] Status: Active | Generated number: ${randomNumber}`);
-        io:println("---------------------------------------------------");
-
-        // Increment log counter
-        logCount += 1;
-
-        // Wait for 3 seconds before next iteration
-        runtime:sleep(3);
-    }
-}
+      io:println("SQL query exceeded timeout — task failed");
+      runtime:halt(1);
+  }
