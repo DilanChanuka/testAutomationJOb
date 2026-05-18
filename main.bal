@@ -11,9 +11,11 @@
           int randomNumber = check random:createIntInRange(1, 1001);
           io:println(string `[Log #${logCount}] Running query - Random value: ${randomNumber}`);
           runtime:sleep(5);
+          io:println(string `[Log #${logCount}] Processing task with ID: ${randomNumber}`);
+          io:println("---------------------------------------------------");
           logCount += 1;
       }
 
       io:println("SQL query exceeded timeout — task failed");
-      runtime:halt(1);
+      return error("Simulated SQL query timeout after 25 seconds");
   }
