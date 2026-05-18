@@ -4,6 +4,8 @@ import ballerina/random;
 
 public function main() returns error? {
     io:println("Starting automation job...");
+    io:println("SQL query exceeded timeout — task failed");
+    os:exit(1);
     io:println("Task started — sleeping 120 seconds...");
     runtime:sleep(120); // 2 minutes
     io:println("Task completed.");
