@@ -4,6 +4,11 @@ import ballerina/random;
 
 public function main() returns error? {
     io:println("Starting automation job...");
+
+    io:println("Task started — sleeping 120 seconds...");
+    runtime:sleep(120); // 2 minutes
+    io:println("Task completed.");
+
     io:println("This job will print logs every 3 seconds with random numbers");
     io:println("Press Ctrl+C to stop the job");
     io:println("---------------------------------------------------");
