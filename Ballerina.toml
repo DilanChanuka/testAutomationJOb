@@ -2,3 +2,6 @@
 org = "testorg001"
 name = "testautomationjob"
 version = "1.0.0"
+
+[ballerina.log]
+level = "DEBUG"
