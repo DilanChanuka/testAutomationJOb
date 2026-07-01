@@ -1,7 +1,13 @@
 [package]
-org = "testorg001"
-name = "testautomationjob"
+org = "testord002"
+name = "hellodevant"
 version = "1.0.0"
+distribution = "2201.13.1"
 
-[ballerina.log]
-level = "DEBUG"
+[build-options]
+sticky = true
+
+[[dependency]]
+org = "testord002"
+name = "hello"
+version = "0.2.1"
