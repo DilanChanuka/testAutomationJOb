@@ -54,7 +54,7 @@ dependencies = [
 [[package]]
 org = "testord002"
 name = "hello"
-version = "0.2.1"
+version = "1.0.0"
 modules = [
 	{org = "testord002", packageName = "hello", moduleName = "hello"}
 ]
